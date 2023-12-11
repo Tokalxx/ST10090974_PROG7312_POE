@@ -1,0 +1,39 @@
+﻿<Application
+    x:Class="PROG7312_UI.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:PROG7312_UI"
+    xmlns:view="clr-namespace:PROG7312_UI.MVVM.View"
+    xmlns:viewModel="clr-namespace:PROG7312_UI.MVVM.View_Model"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Themes/StandardTextBlockTheme.xaml" />
+                <ResourceDictionary Source="Themes/StandardTextBoxTheme.xaml" />
+                <ResourceDictionary Source="Themes/MultipleChoiceTheme.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:RBViewModel}">
+                <view:ReplacingBooksView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:IAViewModel}">
+                <view:IdentifyAreaView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:FCNViewModel}">
+                <view:FindingCallNumbersView />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:HelpViewModel}">
+                <view:HelpView />
+            </DataTemplate>
+
+            <Style x:Key="BaseTextBlock" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
